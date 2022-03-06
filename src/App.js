@@ -1,10 +1,18 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Albums from './pages/Albums';
+import Posts from './pages/Posts';
+import Users from './pages/Users';
 
 function App() {
   return (
-    <div className="App">
-      <h4>hiveonline</h4>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Users />} />
+        <Route path='/posts' element={<Posts />} />
+        <Route path='/albums' element={<Albums />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
