@@ -29,7 +29,7 @@ const Albums = () => {
             <Container className='mt-4'>
                 <div>
                     <h2>Albums</h2>
-                    <p> here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here </p>
+                    <p>This page shows the albums for a certain user</p>
                 </div>
                 {isFetching ? <Box sx={{ width: '100%' }}>
                     <LinearProgress />

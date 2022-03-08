@@ -14,7 +14,7 @@ import { useFadedShadowStyles } from '@mui-treasury/styles/shadow/faded';
 import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import PhotoAlbumIcon from '@mui/icons-material/PhotoAlbum';
 import { Link } from 'react-router-dom';
-
+import Button from './Button';
 
 const useStyles = makeStyles(({ spacing }) => ({
     card: {
@@ -82,6 +82,7 @@ const UserCard = React.memo(function ElevatedHeaderCard(props) {
                         </TableRow>
                     </TableBody>
                 </Table>
+                <Button content="View user info" />
             </CardContent>
         </Card>
     );

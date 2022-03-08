@@ -23,8 +23,8 @@ const Users = () => {
             <Header />
             <Container className='mt-4'>
                 <div>
-                    <h2>All Users</h2>
-                    <p> here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here Project description goes here </p>
+                    <h2>Users</h2>
+                    <p>This page shows the users</p>
                 </div>
                 {isFetching ? <Box sx={{ width: '100%' }}>
                     <LinearProgress />
