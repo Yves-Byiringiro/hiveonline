@@ -4,8 +4,8 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { getUSers, usersSelector } from '../slices/UsersSlice';
 import { Box, LinearProgress } from '@material-ui/core';
-import { Col, Container, Row } from 'react-bootstrap'
-
+import { Container, Row } from 'react-bootstrap'
+import UserInfoComp from '../components/UserInfoComp';
 
 function UserInfo() {
     const { id } = useParams()
@@ -23,11 +23,6 @@ function UserInfo() {
     <div>
         <Header />
         <Container className='mt-4'>
-
-            <div>
-                <h2>User Information</h2>
-                <p> This page shows the posts for a certain user </p>
-            </div>
             {isFetching ? <Box sx={{ width: '100%' }}>
                     <LinearProgress />
                 </Box> :
@@ -35,8 +30,19 @@ function UserInfo() {
                            {users.map((user, i) => {
                             if (user.id == id) {
                                 return (
-                                    <h2>{user.name}</h2>
-                                    )
+                                  <UserInfoComp 
+                                    name={user.name}
+                                    username={user.username}
+                                    email={user.email}
+                                    phone={user.phone}
+                                    website={user.website}
+                                    street={user.address.street}
+                                    suite={user.address.suite}
+                                    city={user.address.city}
+                                    company={user.company.name}
+                                    />
+                                   
+                                )
                             }
                         })}
                   </Row>

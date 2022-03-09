@@ -14,7 +14,9 @@ const styles = {
     mainDiv:{
         display: 'flex',
         justifyContent: 'space-between',
-        margin:5
+        margin:5,
+        paddingTop: 5,
+        paddingBottom: 5,
     }
 }
 export default UserCardBody;

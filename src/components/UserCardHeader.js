@@ -15,7 +15,7 @@ const styles = {
         width:300,
         borderRadius: 18,
         color: '#fff',
-        padding: 4
+        padding: 10
     }
 }
 export default UserCardHeader;

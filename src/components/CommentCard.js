@@ -1,30 +1,28 @@
 import React from 'react'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
 const CommentCard = (props) => {
     return (
-        <Card sx={{ width: '9cm' }}>
-            <CardActionArea>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        By: {props.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {props.body}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                <Typography variant="body2" color="text.secondary">
-                    Email:{props.email}
-                </Typography>
-            </CardActions>
-        </Card>
+        <div style={styles.mainDiv}>
+            <h4>{props.name}</h4>
+            <p>{props.body}</p>
+            <p style={styles.email}>Email: {props.email}</p>
+        </div>
     )
 }
 
-export default CommentCard
+const styles = {
+    mainDiv:{
+        width:350,
+        border: '1px solid darkblue',
+        padding: 7
+    },
+    email:{
+        background: '#557be5',
+        width: 'fit-content',
+        padding: 3,
+        borderRadius: 8,
+        fontStyle: 'italic',
+        color: '#fff'
+    }
+}
+export default CommentCard;

@@ -7,16 +7,13 @@ import AlbumCard from '../components/AlbumCard'
 import Header from '../components/Header'
 import { albumsSelector, getAlbums } from '../slices/AlbumsSlice'
 
-
 const Albums = () => {
 
     const { id } = useParams()
-    console.log('id', id)
 
     const dispatch = useDispatch()
     const { isFetching, albums } = useSelector(albumsSelector)
 
-    console.log('albums', albums)
 
     useEffect(() => {
         dispatch(getAlbums());

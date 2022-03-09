@@ -3,7 +3,7 @@ import React from 'react'
 function UserCardFooter(props) {
   return (
     <div style={styles.mainDiv} onClick={props.onClickUserInfo}>
-        View user information
+        {props.content}
     </div>
   )
 }

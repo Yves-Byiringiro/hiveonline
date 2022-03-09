@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Header from '../components/Header'
 import CommentCard from '../components/CommentCard'
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { getComments, commentsSelector } from '../slices/CommentsSlice';
 import { Box, LinearProgress } from '@material-ui/core';
@@ -12,7 +12,6 @@ import Pagination from '../components/Pagination';
 const Comments = () => {
 
     const { id } = useParams()
-    const navigate = useNavigate()
 
     const dispatch = useDispatch()
     const { isFetching, comments } = useSelector(commentsSelector)

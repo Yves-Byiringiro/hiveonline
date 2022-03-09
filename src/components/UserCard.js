@@ -1,8 +1,8 @@
 import React from 'react';
 import UserCardHeader from './UserCardHeader';
 import UserCardBody from './UserCardBody';
-import UserCardFooter from './UserCardFooter';
 import UserCardNav from './UserCardNav';
+import UserCardFooter from './UserCardFooter';
 
 
 function UserCard(props) {
@@ -13,7 +13,7 @@ function UserCard(props) {
         <UserCardBody name="Street" content={props.street}/>
         <UserCardBody name="Phone" content={props.phone}/>
         <UserCardNav onClickPosts={props.onClickPosts} onClickAlbums={props.onClickAlbums} />
-        <UserCardFooter onClickUserInfo={props.onClickUserInfo} />
+        <UserCardFooter onClickUserInfo={props.onClickUserInfo} content="View user information"/>
     </div>
   )
 }
