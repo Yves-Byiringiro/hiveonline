@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// I used slice as on of the methods of reduxjs toolkit library (new library for managing state)
+
+// fetching comment data on https://jsonplaceholder.typicode.com/comments endpoint as store them in state
+
 export const getComments = createAsyncThunk(
     'posts/getComments',
     async (thunkAPI) => {

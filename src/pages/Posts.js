@@ -8,6 +8,7 @@ import { getPosts, postsSelector } from '../slices/PostsSlice';
 import { Box, LinearProgress } from '@material-ui/core';
 import Pagination from '../components/Pagination';
 
+// Page to show post of a certain user
 
 const Posts = () => {
 

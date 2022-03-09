@@ -7,6 +7,8 @@ import { getUSers, usersSelector } from '../slices/UsersSlice';
 import { useNavigate } from 'react-router-dom';
 import { Box,  LinearProgress } from '@material-ui/core';
 
+// Page to show users 
+
 const Users = () => {
 
     const dispatch = useDispatch()

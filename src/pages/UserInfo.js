@@ -7,6 +7,8 @@ import { Box, LinearProgress } from '@material-ui/core';
 import { Container, Row } from 'react-bootstrap'
 import UserInfoComp from '../components/UserInfoComp';
 
+// Page to show details information of a certain user
+
 function UserInfo() {
     const { id } = useParams()
     console.log('id', id);

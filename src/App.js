@@ -12,6 +12,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* routes for different pages */}
+
         <Route path='/' element={<Users />} />
         <Route path='/users/:id' element={<UserInfo />} />
         <Route path='/user/:id/posts' element={<Posts />} />

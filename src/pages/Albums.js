@@ -7,6 +7,8 @@ import AlbumCard from '../components/AlbumCard'
 import Header from '../components/Header'
 import { albumsSelector, getAlbums } from '../slices/AlbumsSlice'
 
+// Page to show albums of a certain user
+
 const Albums = () => {
 
     const { id } = useParams()

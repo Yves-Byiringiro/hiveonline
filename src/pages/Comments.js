@@ -8,6 +8,7 @@ import { getComments, commentsSelector } from '../slices/CommentsSlice';
 import { Box, LinearProgress } from '@material-ui/core';
 import Pagination from '../components/Pagination';
 
+// Page to show comments of a certain post
 
 const Comments = () => {
 
