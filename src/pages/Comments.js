@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Header from '../components/Header'
 import CommentCard from '../components/CommentCard'
@@ -6,23 +6,31 @@ import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { getComments, commentsSelector } from '../slices/CommentsSlice';
 import { Box, LinearProgress } from '@material-ui/core';
+import Pagination from '../components/Pagination';
+
 
 const Comments = () => {
 
     const { id } = useParams()
-    console.log('id', id)
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
     const { isFetching, comments } = useSelector(commentsSelector)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [commentsPerPage, setcommentsPerPage] = useState(6);
 
 
-    console.log('comments', comments)
-    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(getComments());
     }, [dispatch]);
 
+    const indexOfLastComment = currentPage * commentsPerPage;
+    const indexOfFirstComment = indexOfLastComment - commentsPerPage;
+    const currentComments = comments.slice(indexOfFirstComment, indexOfLastComment);
+  
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+    
     return (
         <div>
             <Header />
@@ -34,10 +42,11 @@ const Comments = () => {
 
                 {isFetching ? <Box sx={{ width: '100%' }}>
                     <LinearProgress />
-                </Box> : <Row className='mt-2'>
+                </Box> : 
+                    <Row className='mt-2 mb-2'>
 
                     {
-                        comments.map((comment, i) => {
+                        currentComments.map((comment, i) => {
                             if (comment.postId == id) {
                                 return (
                                     <Col key={i} className='md-4 mt-5'>
@@ -46,7 +55,11 @@ const Comments = () => {
                             }
                         })
                     }
-                </Row>}
+                    </Row>}
+                    <Pagination 
+                            postsPerPage={commentsPerPage} 
+                                totalPosts={currentComments.length} 
+                                    paginate={paginate}/>
                 
             </Container>
         </div>

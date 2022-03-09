@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Header from '../components/Header'
 import PostCard from '../components/PostCard'
@@ -6,22 +6,33 @@ import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts, postsSelector } from '../slices/PostsSlice';
 import { Box, LinearProgress } from '@material-ui/core';
+import Pagination from '../components/Pagination';
+
 
 const Posts = () => {
 
     const { id } = useParams()
-    console.log('id', id)
+
+    console.log(id);
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
     const { isFetching, posts } = useSelector(postsSelector)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setpostsPerPage] = useState(6);
 
-    console.log('posts', posts)
-    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(getPosts());
+
     }, [dispatch]);
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+    
     return (
         <div>
             <Header />
@@ -35,7 +46,7 @@ const Posts = () => {
                 </Box> :
                     <Row className='mt-2'>
 
-                        {posts.map((post, i) => {
+                        {currentPosts.map((post, i) => {
                             if (post.userId == id) {
                                 return (
                                     <Col key={i} className='md-4 mt-5'>
@@ -43,7 +54,12 @@ const Posts = () => {
                                     </Col>)
                             }
                         })}
+                       
                     </Row>}
+                    <Pagination 
+                            postsPerPage={postsPerPage} 
+                                totalPosts={currentPosts.length} 
+                                    paginate={paginate}/>
             </Container>
         </div>
     )

@@ -6,7 +6,6 @@ export const getUSers = createAsyncThunk(
         const res = await fetch('https://jsonplaceholder.typicode.com/users').then(
             (data) => data.json()
         )
-        console.log('users', res)
         return res
     })
 

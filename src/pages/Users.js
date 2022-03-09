@@ -39,7 +39,8 @@ const Users = () => {
                                     street={user.address.street}
                                     phone={user.phone}
                                     onClickPosts={() => navigate(`/user/${user.id}/posts`)}
-                                    onClickAlbums={() => navigate(`/user/${user.id}/albums`)} />
+                                    onClickAlbums={() => navigate(`/user/${user.id}/albums`)} 
+                                    onClickUserInfo={()=> navigate(`/users/${user.id}`)} />
                             </Col>
                         )
                     })}
